@@ -1,0 +1,26 @@
+Model: Company (this map to the db table companies)
+- id: integer (AI PK)
+- name: string
+- created_at: timestamp
+- update_at: timestamp
+
+
+Model: Beer (map to db tables beers)
+- id: integer (AI PK)
+- name: string (varchar in sql)
+- price: decimal
+- description: text (text in sql)
+- created_at: timestamp
+- update_at: timestamp
+
+Routes- (use HTTPS verbs)
+GET /companies              => companies#index (Collection route, load and display all companies)
+GET /companies/:id          => companies#show (memeber route, load and display a single company)
+
+Controller: CompaniesController
+- action: index
+- action: show
+
+Views
+- view: index /app/view/comapnies/index.html.erb
+- view: show /app/view/companies/show.html.erb
